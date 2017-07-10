@@ -8,6 +8,12 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
 
-app.listen(3004, function() {
-  console.log('up 3004');
+
+
+// App Set //
+app.set('port', (process.env.PORT || 3004));
+
+// Listen //
+app.listen(app.get("port"), function(){
+   console.log("Listening on port: " + app.get("port"));
 });
